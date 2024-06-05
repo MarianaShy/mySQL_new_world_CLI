@@ -5,7 +5,7 @@ Database changed
 mysql> create table new_world.notification (
     countrycode char(3) references country(Code),
     has_10_languages Boolean );
-
+Query OK, 0 row affected (0.01 sec)
 
 mysql> show tables;
 +---------------------+

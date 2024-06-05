@@ -11,7 +11,7 @@ const commandsController =  require("./controller")
 
 function instructions () {
 	console.log('\x1b[33m', "                    Commands:");
-	console.log('\x1b[38;2;255;165;0mcapital    <country>\x1b[0m \x1b[38;2;255;255;0m  ------------------------  \x1b[0m \x1b[38;2;173;216;230mToGet the capital of the country;\x1b[0m');
+	console.log('\x1b[38;2;255;165;0mcapital    <country>\x1b[0m \x1b[38;2;255;255;0m  ------------------------  \x1b[0m \x1b[38;2;173;216;230mGet the capital of the country;\x1b[0m');
 	console.log('\x1b[38;2;255;165;0mlang       <region>\x1b[0m \x1b[38;2;255;255;0m   ------------------------  \x1b[0m \x1b[38;2;173;216;230mList all the languages spoken in the region;\x1b[0m');
 	console.log('\x1b[38;2;255;165;0mspoken     <language>\x1b[0m \x1b[38;2;255;255;0m ------------------------  \x1b[0m \x1b[38;2;173;216;230mNumber of cities in which language is spoken;\x1b[0m');
 	console.log('\x1b[38;2;255;165;0mcountries  <country>\x1b[0m \x1b[38;2;255;255;0m  ------------------------  \x1b[0m \x1b[38;2;173;216;230mFind countries with the same official language or in the same continent as a given country;\x1b[0m');

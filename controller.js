@@ -24,7 +24,7 @@ async function commandsController (command, args) {
 				 console.log("\x1b[31mPlease provide a region name\x1b[0m");
 			} else {
 				 const result = await getLanguages(region);
-				 console.log(region);
+				 console.log(result);
 			}
 			break;
 
@@ -35,7 +35,7 @@ async function commandsController (command, args) {
 				 console.log("\x1b[31mPlease provide a language\x1b[0m");
 			} else {
 				const result = await getNumberOfCitiesByLanguage(language);
-				 console.log(language);
+				 console.log(result);
 			}
 			break;
 
@@ -45,7 +45,7 @@ async function commandsController (command, args) {
 					 console.log("\x1b[31mPlease provide a country name\x1b[0m");
 				} else {
 				 const result = await findIfSimilarCountries(countryForCountries);
-					 console.log(countryForCountries);
+					 console.log(result);
 				}
 				break;
 

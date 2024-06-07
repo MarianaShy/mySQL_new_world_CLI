@@ -1,62 +1,70 @@
-const { getCapital, getLanguages, findIfSimilarCountries, getNumberOfCitiesByLanguage } = require('./instructions');
+const {
+   getCapital,
+   getLanguages,
+   findIfSameContinent,
+   findIfSameLang,
+   getNumberOfCitiesByLanguage,
+} = require('./instructions');
 
-async function commandsController (command, args) {
+async function commandsController(command, args) {
+   switch (command) {
+      // Call functions when matching commands are send
 
+      case 'CAPITAL':
+         const countryForCapital = args.join(' ');
+         if (!countryForCapital) {
+            console.log('\x1b[31mPlease provide a country name\x1b[0m');
+         } else {
+            const result = await getCapital(countryForCapital);
+            console.log(result);
+         }
+         break;
 
-	switch (command){
+      case 'LANG':
+         const region = args.join(' ');
+         if (!region) {
+            console.log('\x1b[31mPlease provide a region name\x1b[0m');
+         } else {
+            const result = await getLanguages(region);
+            console.log(result);
+         }
+         break;
 
+      case 'SPOKEN':
+         const language = args.join(' ');
+         if (!language) {
+            console.log('\x1b[31mPlease provide a language\x1b[0m');
+         } else {
+            const result = await getNumberOfCitiesByLanguage(language);
+            console.log(result);
+         }
+         break;
 
-// Call functions when matching commands are send
+      case 'SAMELANG':
+         const countrySameLang = args.join(' ');
+         if (!countrySameLang) {
+            console.log('\x1b[31mPlease provide a country name\x1b[0m');
+         } else {
+            const result = await findIfSameLang(countrySameLang);
+            console.log(result);
+         }
+         break;
 
-		case 'CAPITAL':
-			const countryForCapital = args.join(' ');
-			if (!countryForCapital) {
-				 console.log("\x1b[31mPlease provide a country name\x1b[0m");
-			} else {
-				 const result = await getCapital(countryForCapital);
-				 console.log(result);
-			}
-			break;
+      case 'SAMECONTINENT':
+         const countrySameContinent = args.join(' ');
+         if (!countrySameContinent) {
+            console.log('\x1b[31mPlease provide a country name\x1b[0m');
+         } else {
+            const result = await findIfSameContinent(countrySameContinent);
+            console.log(result);
+         }
+         break;
 
-	  case 'LANG':
-			const region = args.join(' ');
-			if (!region) {
-				 console.log("\x1b[31mPlease provide a region name\x1b[0m");
-			} else {
-				 const result = await getLanguages(region);
-				 console.log(result);
-			}
-			break;
+      //set default message if command does not exist
 
-			
-	  case 'SPOKEN':
-			const language = args.join(' ');
-			if (!language) {
-				 console.log("\x1b[31mPlease provide a language\x1b[0m");
-			} else {
-				const result = await getNumberOfCitiesByLanguage(language);
-				 console.log(result);
-			}
-			break;
-
-			case 'COUNTRIES':
-				const countryForCountries = args.join(' ');
-				if (!countryForCountries) {
-					 console.log("\x1b[31mPlease provide a country name\x1b[0m");
-				} else {
-				 const result = await findIfSimilarCountries(countryForCountries);
-					 console.log(result);
-				}
-				break;
-
-//set default message if command does not exist
-
-	default:
-		console.log("\x1b[31mPlease enter correct command\x1b[0m")
+      default:
+         console.log('\x1b[31mPlease enter correct command\x1b[0m');
+   }
 }
-}
-
-
-
 
 module.exports = commandsController;
